@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- title -->
+    <title>Login</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="./assets/img/favicon.png">
+    <!--  -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="./assets/css/all.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="./assets/css/owl.carousel.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="./assets/css/magnific-popup.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="./assets/css/animate.css">
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="./assets/css/meanmenu.min.css">
+    <!-- main style -->
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <!-- responsive -->
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <!-- toast -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./assets/css/login.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="form-signin rounded-sm shadow">
+            <div class="mx-auto" style="width:200px">
+                <img class="mb-4 logo" src="./assets/img/logo.png" alt="">
+            </div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-pills mb-4">
+                <li class="nav-item pill-1">
+                    <a class="nav-link active rounded-0" data-toggle="tab" href="#login">Login</a>
+                </li>
+                <li class="nav-item pill-2">
+                    <a class="nav-link  rounded-0" data-toggle="tab" href="#register">Register</a>
+                </li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!-- Tab1 -->
+                <div id="login" class="container tab-pane active">
+                    <label for="inputEmail">Email address</label>
+                    <input type="email" id="loginEmail" class="form-control mb-4" placeholder="Email address">
+                    <!--  -->
+                    <label for="inputPassword">Password</label>
+                    <input type="password" id="loginPassword" class="form-control" placeholder="Password">
+
+                    <!--  -->
+                    <button class="btn btn-lg btn-dark btn-block mt-4" onclick="submitLogin()">Login</button>
+                    <p id="errLogin" class="text-error">
+                        <i class=" mb-4 mt-2">You have not entered your email or password</i>
+                    </p>
+                    <p class="mt-4 mb-0 text-muted small">IA Creator works best with Google Chrome, Mozilla Firefox and
+                        Safari</p>
+                </div>
+
+                <!-- Tab2 -->
+                <div id="register" class="container tab-pane fade">
+                    <label>Email address</label>
+                    <input type="email" id="registerEmail" class="form-control mb-4" placeholder="Email address">
+                    <p id="errRegisterEmail" class="text-error">
+                        <i class=" mb-4 mt-2">You have not entered your email</i>
+                    </p>
+                    <!-- Email address -->
+                    <label>User Name</label>
+                    <input type="text" id="registerName" class="form-control mb-4" placeholder="User Name">
+                    <p id="errRegisterName" class="text-error">
+                        <i class=" mb-4 mt-2">You have not entered your name</i>
+                    </p>
+                    <!-- Email address -->
+                    <label>Password</label>
+                    <input type="password" id="registerPassword" class="form-control mb-4" placeholder="Password">
+                    <p id="errRegisterPassword" class="text-error">
+                        <i class=" mb-4 mt-2">You have not entered your password</i>
+                    </p>
+                    <!-- Password -->
+                    <label>Repeat Password</label>
+                    <input type="password" id="registerRepeatPassword" class="form-control"
+                        placeholder="Repeat Password">
+                    <p id="errRegisterRepeatPassword" class="text-error">
+                        <i class=" mb-4 mt-2">You have not entered your repeat password</i>
+                    </p>
+                    <!-- Repeat Password -->
+                    <button onclick="handleRegister()" class="btn btn-lg btn-dark btn-block mt-4">Register</button>
+                    <p class="mt-4 mb-0 text-muted small">IA Creator works best with Google Chrome, Mozilla Firefox and
+                        Safari</p>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- /.container -->
+
+</body>
+
+</html>
+
+<!-- jquery -->
+<script src="./assets/js/jquery-1.11.3.min.js"></script>
+<!-- bootstrap -->
+<script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+<!-- isotope -->
+<script src="./assets/js/jquery.isotope-3.0.6.min.js"></script>
+<!-- waypoints -->
+<script src="./assets/js/waypoints.js"></script>
+<!-- owl carousel -->
+<script src="./assets/js/owl.carousel.min.js"></script>
+<!-- magnific popup -->
+<script src="./assets/js/jquery.magnific-popup.min.js"></script>
+<!-- mean menu -->
+<script src="./assets/js/jquery.meanmenu.min.js"></script>
+<!-- sticker js -->
+<script src="./assets/js/sticker.js"></script>
+<!-- main js -->
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<!-- toast -->
+<script src="./assets/js/main.js"></script>
+<script src="./assets/js/logic/user/login.js"></script>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts Admin</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <link rel="stylesheet" href="../assets/css/all.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+
+<body>
+
+    <div class="container-fluid m-0 mt-2 row">
+        <div class="header-admin col-2">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="addProduct.html">Product</a></li>
+                <li><a href="./addOrder.html">Order</a></li>
+                <li><a href="./addUser.html">User</a></li>
+                <li><a href="./addPost.html">Posts</a></li>
+                <li><a href="./addComment.html">Comment</a></li>
+            </ul>
+        </div>
+        <div class="main col-10 pr-0">
+            <div class="heading mb-4">
+                <h1>Blog Admin</h1>
+                <div class="left-heading input-group col-3 p-0">
+                    <input placeholder="Search" type="text" id="searchInput" class="form-control">
+                </div>
+            </div>
+            <input type="hidden" id="itemId">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th style="width:5%" scope="col">#</th>
+                        <th style="width:10%" scope="col">ID</th>
+                        <th style="width:10%" scope="col">Title</th>
+                        <th style="width:10%" scope="col">Images</th>
+                        <th style="width:50%" scope="col">Description</th>
+                        <th style="width:30%" scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody id="showProduct">
+
+                </tbody>
+            </table>
+            <!-- Button trigger modal -->
+            <button onclick="handleClickData()" type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#exampleModalCenter">
+                Add new
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Add New BLog</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" class="form-control" id="title" placeholder="Enter title">
+                                <p id="errTitle" class="text-error">
+                                    <i class=" mb-4 mt-2">You have not entered your title</i>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label>Image</label>
+                                <input type="text" class="form-control" id="img" placeholder="Enter image">
+                                <p id="errImg" class="text-error">
+                                    <i class=" mb-4 mt-2">You have not entered your img</i>
+                                </p>
+                            </div>
+                            <!--  -->
+                            <div class="checkFlex">
+                                <label for="">description</label>
+                                <textarea name="" id="description"></textarea>
+                                <p id="errDescription" class="text-error">
+                                    <i class=" mb-4 mt-2">You have not entered your description</i>
+                                </p>
+                            </div>
+                            <!--  -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button id="dismissModal" type="button" onclick="handleAdd()" class="btn btn-primary">Add
+                                new</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="modal"></div>
+            <!-- end Modal -->
+            <div id="pagination" class="pagination mt-3 justify-content-center"></div>
+        </div>
+    </div>
+</body>
+<script src="../assets/js/jquery-1.11.3.min.js"></script>
+<!-- bootstrap -->
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+<!-- isotope -->
+<script src="../assets/js/jquery.isotope-3.0.6.min.js"></script>
+<!-- waypoints -->
+<script src="../assets/js/waypoints.js"></script>
+<!-- owl carousel -->
+<script src="../assets/js/owl.carousel.min.js"></script>
+<!-- magnific popup -->
+<script src="../assets/js/jquery.magnific-popup.min.js"></script>
+<!-- mean menu -->
+<script src="../assets/js/jquery.meanmenu.min.js"></script>
+<!-- sticker js -->
+<script src="../assets/js/sticker.js"></script>
+<!-- main js -->
+<script src="../assets/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+<script src="../assets/js/logic/admin/post.js"></script>
+<script src="../assets/js/logic/admin/checkAdmin.js"></script>
+
+</html>

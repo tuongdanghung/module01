@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Product</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <link rel="stylesheet" href="../assets/css/all.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+
+<body>
+
+    <div class="container-fluid m-0 mt-2 row">
+        <div class="header-admin col-2">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="addProduct.html">Product</a></li>
+                <li><a href="./addOrder.html">Order</a></li>
+                <li><a href="./addUser.html">User</a></li>
+                <li><a href="./addPost.html">Posts</a></li>
+                <li><a href="./addComment.html">Comment</a></li>
+            </ul>
+        </div>
+        <div class="main col-10 pr-0">
+            <div class="heading mb-4">
+                <h1>Product Admin</h1>
+                <div class="left-heading input-group col-3 p-0">
+                    <input placeholder="Search" type="text" id="searchInput" class="form-control">
+                </div>
+            </div>
+            <input type="hidden" id="itemId">
+            <table class="table table-bordered" style="width:100%">
+                <thead class="thead-dark">
+                    <tr>
+                        <th style="width:2%">#</th>
+                        <th style="width:8%">Title</th>
+                        <th style="width:4%">Quantity</th>
+                        <th style="width:6%">Price</th>
+                        <th style="width:15%">Image</th>
+                        <th style="width:10%">Color</th>
+                        <th style="width:10%">Internal</th>
+                        <th style="width:10%">Ram</th>
+                        <th style="width:21%">Description</th>
+                        <th style="width:16%"></th>
+                    </tr>
+                </thead>
+                <tbody id="showProduct"></tbody>
+            </table>
+            <!-- Button trigger modal -->
+            <button onclick="handleClickData()" type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#exampleModalCenter">
+                Add new
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Add New Product</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" class="form-control" id="title" placeholder="Enter title">
+                                <p id="errTitle" class="text-error">
+                                    <i class=" mb-4 mt-2">You have not entered your title</i>
+                                </p>
+                            </div>
+                            <!--  -->
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input type="number" class="form-control" id="price" placeholder="Enter Price">
+                                <p id="errPrice" class="text-error">
+                                    <i class=" mb-4 mt-2">You have not entered your price</i>
+                                </p>
+                            </div>
+                            <!--  -->
+                            <div class="form-group">
+                                <label>Quantity</label>
+                                <input id="quantity" class="form-control" type="number" placeholder="Enter Quantity">
+                                <p id="errQuantity" class="text-error">
+                                    <i class=" mb-4 mt-2">You have not entered your email</i>
+                                </p>
+                            </div>
+                            <!--  -->
+                            <div class="form-group">
+                                <label for="">Images</label>
+                                <input id="img" type="file" multiple>
+                                <p id="errImage" class="text-error">
+                                    <i class=" mb-4 mt-2">You have not entered your images</i>
+                                </p>
+                            </div>
+                            <!--  -->
+                            <div class="checkFlex">
+                                <label>Color</label>
+                                <div id="colorOptions" class="form-check form-check-inline">
+                                    <div class="colorOptions">
+                                        <div>
+                                            <input class="form-check-input" type="checkbox" id="colorRed"
+                                                data-color="red">
+                                            <label for="colorRed">Red</label>
+                                        </div>
+                                        <div>
+                                            <input class="form-check-input" type="checkbox" id="colorBlack"
+                                                data-color="black">
+                                            <label for="colorRed">Black</label>
+                                        </div>
+                                        <div>
+                                            <input class="form-check-input" type="checkbox" id="colorGold"
+                                                data-color="gold">
+                                            <label for="colorRed">Gold</label>
+                                        </div>
+                                        <div>
+                                            <input class="form-check-input" type="checkbox" id="colorGreen"
+                                                data-color="green">
+                                            <label for="colorGreen">Green</label>
+                                        </div>
+                                        <div>
+                                            <input class="form-check-input" type="checkbox" id="colorBlue"
+                                                data-color="blue">
+                                            <label for="colorBlue">Blue</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p id="errColor" class="text-error">
+                                    <i class=" mb-4 mt-2">You have not entered your email</i>
+                                </p>
+                            </div>
+                            <!--  -->
+                            <div class="checkFlex">
+                                <label for="">Internal</label>
+                                <div id="internalOptions" class="form-check form-check-inline">
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" id="32GB" data-internal="32GB">
+                                        <label for="colorRed">32GB</label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" id="64GB" data-internal="64GB">
+                                        <label for="colorGreen">64GB</label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" id="128GB"
+                                            data-internal="128GB">
+                                        <label for="colorBlue">128GB</label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" id="256GB"
+                                            data-internal="256GB">
+                                        <label for="colorBlue">256GB</label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" id="1TB" data-internal="1TB">
+                                        <label for="colorBlue">1TB</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <p id="errInternal" class="text-error">
+                                <i class=" mb-4 mt-2">You have not entered your email</i>
+                            </p>
+                            <!--  -->
+                            <div class="checkFlex">
+                                <label>Ram</label>
+                                <div id="ramOptions" class="form-check form-check-inline">
+                                    <div>
+                                        <input data-ram="8GB" class="form-check-input" type="checkbox" id="8GB"
+                                            value="8GB">
+                                        <label>8GB</label>
+                                    </div>
+                                    <div>
+                                        <input data-ram="16GB" class="form-check-input" type="checkbox" id="16GB"
+                                            value="16GB">
+                                        <label>16GB</label>
+                                    </div>
+                                    <div>
+                                        <input data-ram="32GB" class="form-check-input" type="checkbox" id="32GB"
+                                            value="32GB">
+                                        <label>32GB</label>
+                                    </div>
+                                    <div>
+                                        <input data-ram="64GB" class="form-check-input" type="checkbox" id="64GB"
+                                            value="64GB">
+                                        <label>64GB</label>
+                                    </div>
+                                    <div>
+                                        <input data-ram="128GB" class="form-check-input" type="checkbox" id="128GB"
+                                            value="128GB">
+                                        <label>128GB</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <p id="errRam" class="text-error">
+                                <i class=" mb-4 mt-2">You have not entered your email</i>
+                            </p>
+                            <!--  -->
+                            <div class="checkFlex">
+                                <label>description</label>
+                                <textarea name="" id="description"></textarea>
+                            </div>
+                            <!--  -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button id="dismissModal" type="button" onclick="handleAdd()" class="btn btn-primary">Add
+                                new</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="modal"></div>
+            <!-- end Modal -->
+            <div id="pagination" class="pagination mt-3 justify-content-center"></div>
+        </div>
+    </div>
+</body>
+<script src="../assets/js/jquery-1.11.3.min.js"></script>
+<!-- bootstrap -->
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+<!-- isotope -->
+<script src="../assets/js/jquery.isotope-3.0.6.min.js"></script>
+<!-- waypoints -->
+<script src="../assets/js/waypoints.js"></script>
+<!-- owl carousel -->
+<script src="../assets/js/owl.carousel.min.js"></script>
+<!-- magnific popup -->
+<script src="../assets/js/jquery.magnific-popup.min.js"></script>
+<!-- mean menu -->
+<script src="../assets/js/jquery.meanmenu.min.js"></script>
+<!-- sticker js -->
+<script src="../assets/js/sticker.js"></script>
+<!-- main js -->
+<script src="../assets/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+<script src="../assets/js/logic/admin/product.js"></script>
+<script src="../assets/js/logic/admin/checkAdmin.js"></script>
+
+</html>
